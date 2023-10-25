@@ -166,7 +166,7 @@ export const fileHandler =
                     return;
                 }
 
-                const uri: string = resolvedTraceURI.path;
+                const uri: string = resolvedTraceURI.fsPath;
                 if (!uri) {
                     traceLogger.addLogMessage(
                         'Cannot open trace: could not retrieve path from URI for trace ' + resolvedTraceURI,
@@ -311,8 +311,8 @@ const isCtf = async (directory: string): Promise<boolean> => {
 };
 
 function getProgressBarTitle(traceUri: vscode.Uri | undefined): string {
-    if (!traceUri || !traceUri.path) {
+    if (!traceUri || !traceUri.fsPath) {
         return 'undefined';
     }
-    return traceUri.path.substring(traceUri.path.lastIndexOf('/') + 1);
+    return traceUri.fsPath.substring(traceUri.fsPath.lastIndexOf('/') + 1);
 }

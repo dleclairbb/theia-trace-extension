@@ -115,7 +115,7 @@ export class TraceViewerPanel {
     private static async saveTraceCsv(csvData: string, defaultFileName: string) {
         const saveDialogOptions = {
             defaultUri: vscode.workspace.workspaceFolders
-                ? vscode.Uri.file(vscode.workspace.workspaceFolders[0].uri.path + '/' + defaultFileName)
+                ? vscode.Uri.file(vscode.workspace.workspaceFolders[0].uri.fsPath + '/' + defaultFileName)
                 : undefined,
             saveLabel: 'Save as CSV',
             filters: {
